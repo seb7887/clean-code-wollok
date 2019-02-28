@@ -22,4 +22,117 @@ Los principios de la ingeniería de software, del libro de Robert C. Martin [*Cl
 
 No hay que seguir tan estrictamente todos los principios en este libro, y vale la pena mencionar que hacia muchos de ellos habrá controversia en cuanto al consentimiento. Estas son reflexiones hechas después de muchos años de experiencia colectiva de los autores de *Clean Code*.
 
-Una cosa más: saber esto no te hará un mejor programador inmediatamente, y tampoco trabajar con estas herramientas durante muchos años garantiza que nunca te vas a equivocar. Cualquier código empieza primero como un borrador y, por último, arreglamos las imperfecciones cuando lo repasamos con nuestros compañeros de trabajo.
+Una cosa más: saber esto no te hará un mejor programador inmediatamente, y tampoco trabajar con estas herramientas durante muchos años garantiza que nunca te vas a equivocar. Cualquier código empieza primero como un borrador y, por último, arreglamos las imperfecciones cuando lo revisamos con nuestros compañeros de trabajo.
+
+## **Variables**
+### Usa nombres significativos y pronunciables para las variables
+
+**Mal**
+```javascript
+const dmyyyy = new Date(22, 2, 2019)
+```
+
+**Bien**
+```javascript
+const fechaActual = new Date(22, 2, 2019)
+```
+
+**[⬆ volver hasta arriba](#contenido)**
+
+### Usa el mismo vocabulario para las variables del mismo tipo
+
+**Mal**
+```javascript
+getInfoDelUsuario()
+getDataDelCliente()
+```
+
+**Bien**
+```javascript
+getUsuario()
+```
+
+**[⬆ volver hasta arriba](#contenido)**
+
+### Usa nombres que se puedan buscar
+
+Siempre vamos a leer mucho más código del que vamos a escribir. Por eso, es importante que lo que se escriba sea legible y buscable, sino terminaremos confundiendo a quien esté leyendo el código.
+
+**Mal**
+```javascript
+// Para que sirve 1234??
+method valorTotal(cantidad) = cantidad * 1234
+```
+
+**Bien**
+```javascript
+// Se declara las constantes aparte -> mas legible y modificable
+const COSTO = 1234
+
+method valorTotal(cantidad) = cantidad * COSTO
+```
+
+**[⬆ volver hasta arriba](#contenido)**
+
+### Usa variables para volver más entendible el código
+
+**Mal**
+```javascript
+guardarCodigoPostal('Calle Falsa 123', 1234)
+```
+**Bien**
+```javascript
+var direccion = 'Calle Falsa 123'
+var codigoPostal = 1234
+guardarCodigoPostal(direccion, codigoPostal)
+```
+
+**[⬆ volver hasta arriba](#contenido)**
+
+### Evitar el mapeo mental
+Ser explícito es mucho mejor que ser implícito.
+
+**Mal**
+```javascript
+var ubicaciones = [buenosAires, cordoba, rosario]
+ubicaciones.forEach { u => u.coordenadas() } // Que es u??
+```
+
+**Bien**
+```javascript
+var ubicaciones = [buenosAires, cordoba, rosario]
+ubicaciones.forEach { ubicacion => ubicacion.coordenadas() } // Tu yo del futuro te lo va a agradecer
+```
+
+**[⬆ volver hasta arriba](#contenido)**
+
+## No incluyas contexto innecesario
+Si el nombre de tu clase/objeto te dice algo, no lo repitas en el nombre de tu variable también.
+
+**Mal**
+```javascript
+class Coche {
+  const property marcaCoche = 'Honda'
+  const property modeloCoche = 'Accord'
+  var property colorCoche = 'Azul'
+
+  method pintar(nuevoColor) {
+    this.colorCoche = nuevoColor
+  }
+}
+```
+
+**Bien**
+```javascript
+class Coche {
+  const property marca = 'Honda'
+  const property modelo = 'Accord'
+  var property color = 'Azul'
+
+  method pintar(nuevoColor) {
+    this.color = nuevoColor
+  }
+}
+```
+
+**[⬆ volver hasta arriba](#contenido)**
