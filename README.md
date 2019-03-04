@@ -136,3 +136,38 @@ class Coche {
 ```
 
 **[⬆ volver hasta arriba](#contenido)**
+
+## **Funciones**
+### Argumentos de funciones (2 o menos idealmente)
+
+Limitar la cantidad de parámetros de tus funciones es increíblemente importante, ya que hace que tus tests sean mucho más fáciles. Al pasar los 3 parámetros, vas a llegar a un escenario de explosión combinatoria en el que hay que comprobar con tests muchos casos únicos con un argumento separado.
+
+Normalmente, si tu función tiene más de dos argumentos es porque realiza demasiadas tareas. En ese caso, es mejor refactorizar y extraer parte de la función en otra.
+
+**Mal**
+```javascript
+method valorTotal(cantidad, costoUnitario, impuestos) = (cantidad * costoUnitario) + impuestos
+```
+
+**Bien**
+```javascript
+var property costoUnitario
+var property impuestos
+
+method valorTotal(cantidad) = (cantidad * this.costoUnitario) + this.impuestos
+```
+
+**[⬆ volver hasta arriba](#contenido)**
+
+### Las funciones deben tener una sola responsabilidad
+
+Esta regla es la más importante en la ingeniería del Software. Cuando las funciones sirven para hacer más de una sola cosa, se dificultan las pruebas, la composición y la comprensión. Cuando uno puede aislar una función hasta tener una sola acción, se puede mejorar mucho más fácil eventualmente y el código se vuelve más limpio.
+
+**Mal**
+```javascript
+method guardarClientes(clientes) {
+  clientes.forEach { cliente => {
+    this.baseDeDatos.find { record => record.cliente == cliente }
+  } }
+}
+```
