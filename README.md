@@ -3,15 +3,8 @@
 ## Contenido
   1. [Introducción](#introducción)
   2. [Variables](#variables)
-  3. [Funciones](#funciones)
-  4. [Objetos y estructuras de data](#objetos-y-estructuras-de-data)
-  5. [Clases](#clases)
-  6. [SOLID](#solid)
-  7. [Pruebas](#pruebas)
-  8. [Concurrencia](#concurrencia)
-  9. [Resolver los errores](#resolver-los-errores)
-  10. [Formatear](#formatear)
-  11. [Comentarios](#comentarios)
+  3. [Métodos](#métodos)
+
 
 ## Introducción
 
@@ -137,12 +130,12 @@ class Coche {
 
 **[⬆ volver hasta arriba](#contenido)**
 
-## **Funciones**
-### Argumentos de funciones (2 o menos idealmente)
+## **Métodos**
+### Argumentos de los métodos (2 o menos idealmente)
 
-Limitar la cantidad de parámetros de tus funciones es increíblemente importante, ya que hace que tus tests sean mucho más fáciles. Al pasar los 3 parámetros, vas a llegar a un escenario de explosión combinatoria en el que hay que comprobar con tests muchos casos únicos con un argumento separado.
+Limitar la cantidad de parámetros de tus métodos es increíblemente importante, ya que hace que tus tests sean mucho más fáciles de escribir. Al pasar los 3 parámetros, se tendrá que comprobar con tests muchos casos únicos con un argumento separado.
 
-Normalmente, si tu función tiene más de dos argumentos es porque realiza demasiadas tareas. En ese caso, es mejor refactorizar y extraer parte de la función en otra.
+Normalmente, si tu método tiene más de dos argumentos es porque realiza demasiadas tareas. En ese caso, es mejor refactorizar y extraer parte de la funcionabilidad en otro método aparte.
 
 **Mal**
 ```javascript
@@ -159,9 +152,9 @@ method valorTotal(cantidad) = (cantidad * this.costoUnitario) + this.impuestos
 
 **[⬆ volver hasta arriba](#contenido)**
 
-### Las funciones deben tener una sola responsabilidad
+### Deben tener una sola responsabilidad
 
-Esta regla es la más importante en la ingeniería del Software. Cuando las funciones sirven para hacer más de una sola cosa, se dificultan las pruebas, la composición y la comprensión. Cuando uno puede aislar una función hasta tener una sola acción, se puede mejorar mucho más fácil eventualmente y el código se vuelve más limpio.
+Cuando los métodos sirven para hacer más de una sola cosa, se dificultan las pruebas, la composición y la comprensión. Cuando uno puede aislar un método hasta tener una sola acción, se puede mejorar mucho más fácil eventualmente y el código se vuelve más limpio.
 
 **Mal**
 ```javascript
