@@ -51,22 +51,7 @@ TODO
 
 **[⬆ volver hasta arriba](#contenido)**
 
-### Usa el mismo vocabulario para las variables del mismo tipo
-
-**Mal**
-```javascript
-getInfoDelUsuario()
-getDataDelCliente()
-```
-
-**Bien**
-```javascript
-getUsuario()
-```
-
-**[⬆ volver hasta arriba](#contenido)**
-
-### Usa nombres que se puedan buscar
+### Usar nombres que se puedan buscar
 
 Siempre vamos a leer mucho más código del que vamos a escribir. Por eso, es importante que lo que se escriba sea legible y buscable, sino terminaremos confundiendo a quien esté leyendo el código.
 
