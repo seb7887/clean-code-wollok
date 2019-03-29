@@ -2,7 +2,7 @@
 
 ## Contenido
   1. [Introducción](#introducción)
-  2. [Variables](#variables)
+  2. [Nombres](#nombres)
   3. [Métodos](#métodos)
 
 
@@ -10,17 +10,43 @@
 
 TODO
 
-## **Variables**
-### Usa nombres significativos y pronunciables para las variables
+## **Nombres**
+### Usa nombres descriptivos y pronunciables para las variables
+El nombre de una variable debe indicar a qué se refiere y/o la función que realiza. También debe ser pronunciable, ya que si uno no puede pronunciarlo, resultará complicado explicar a que se refiere
 
 **Mal**
 ```javascript
-const dmyyyy = new Date(22, 2, 2019)
+const d = new Date(22, 2, 2019)
 ```
 
 **Bien**
 ```javascript
 const fechaActual = new Date(22, 2, 2019)
+```
+
+### Los nombres de los métodos deben ser verbos
+TODO
+
+**Mal**
+```javascript
+```
+
+**Bien**
+```javascript
+```
+
+
+### Los nombres de las clases deben ser sustantivos
+Bajo ningún punto deberán ser verbos
+
+TODO
+
+**Mal**
+```javascript
+```
+
+**Bien**
+```javascript
 ```
 
 **[⬆ volver hasta arriba](#contenido)**
@@ -75,8 +101,8 @@ guardarCodigoPostal(direccion, codigoPostal)
 
 **[⬆ volver hasta arriba](#contenido)**
 
-### Evitar el mapeo mental
-Ser explícito es mucho mejor que ser implícito.
+### Evitar asignaciones mentales
+Ser explícito es mucho mejor que ser implícito. El lector del código no tiene que traducir mentalmente a qué se refiere el nombre de una variable
 
 **Mal**
 ```javascript
@@ -124,6 +150,17 @@ class Coche {
 **[⬆ volver hasta arriba](#contenido)**
 
 ## **Métodos**
+### Tamaño reducido
+Los métodos deben ser de tamaño reducido, lo más pequeños que se puedan
+
+**Mal**
+```javascript
+```
+
+**Bien**
+```javascript
+```
+
 ### Argumentos de los métodos (2 o menos idealmente)
 
 Limitar la cantidad de parámetros de tus métodos es increíblemente importante, ya que hace que tus tests sean mucho más fáciles de escribir. Al pasar los 3 parámetros, se tendrá que comprobar con tests muchos casos únicos con un argumento separado.
@@ -145,7 +182,7 @@ method valorTotal(cantidad) = (cantidad * this.costoUnitario) + this.impuestos
 
 **[⬆ volver hasta arriba](#contenido)**
 
-### Deben tener una sola responsabilidad
+### Deben tener una sola cosa, hacerlo bien y debe ser lo único que hagan
 
 Cuando los métodos sirven para hacer más de una sola cosa, se dificultan las pruebas, la composición y la comprensión. Cuando uno puede aislar un método hasta tener una sola acción, se puede mejorar mucho más fácil eventualmente y el código se vuelve más limpio.
 
