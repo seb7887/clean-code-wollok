@@ -129,7 +129,7 @@ class Coche {
   var property colorCoche = 'Azul'
 
   method pintar(nuevoColor) {
-    this.colorCoche = nuevoColor
+    colorCoche = nuevoColor
   }
 }
 ```
@@ -142,7 +142,7 @@ class Coche {
   var property color = 'Azul'
 
   method pintar(nuevoColor) {
-    this.color = nuevoColor
+    color = nuevoColor
   }
 }
 ```
@@ -177,7 +177,7 @@ method valorTotal(cantidad, costoUnitario, impuestos) = (cantidad * costoUnitari
 var property costoUnitario
 var property impuestos
 
-method valorTotal(cantidad) = (cantidad * this.costoUnitario) + this.impuestos
+method valorTotal(cantidad) = (cantidad * self.costoUnitario) + this.impuestos
 ```
 
 **[⬆ volver hasta arriba](#contenido)**
@@ -188,9 +188,11 @@ Cuando los métodos sirven para hacer más de una sola cosa, se dificultan las p
 
 **Mal**
 ```javascript
-method guardarClientes(clientes) {
-  clientes.forEach { cliente => {
-    this.baseDeDatos.find { record => record.cliente == cliente }
-  } }
-}
+method sonTodosVagonesLivianos() = vagones.filter { vagon => vagon.pesoMaximo() < PESO_MAXIMO }.size() === vagones.size()
+```
+**Bien**
+```javascript
+method cantidadDeVagonesLivianos() = vagones.filter { vagon => vagon.pesoMaximo() < PESO_MAXIMO }.size()
+
+method sonTodosVagonesLivianos() = self.cantidadDeVagonesLivianos() === vagones.size()
 ```
